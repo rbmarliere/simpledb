@@ -41,10 +41,11 @@ class simpledb : public eosio::contract
             }
 
             switch( act ) {
-               case N(add_message):
-                   on( eosio::unpack_action_data<new_message>() );
-                   return true;
+                case N(add_message):
+                    on( eosio::unpack_action_data<new_message>() );
+                    return true;
             }
+
             return false;
         }
 
@@ -54,9 +55,10 @@ class simpledb : public eosio::contract
 
 extern "C"
 {
-    /// The apply method implements the dispatch of events to this contract
-    void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
-       simpledb(receiver).apply( code, action );
+    // the apply method implements the dispatch of events to this contract
+    void apply( uint64_t receiver, uint64_t code, uint64_t action )
+    {
+        simpledb(receiver).apply( code, action );
     }
 }
 
