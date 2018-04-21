@@ -1,0 +1,42 @@
+{
+    "types": [],
+    "structs":
+    [
+        {
+            "name": "new_message",
+            "base": "",
+            "fields": [
+                {"name":"sender", "type":"account_name"},
+                {"name":"text", "type":"string"}
+            ]
+        },
+        {
+            "name": "message",
+            "base": "",
+            "fields": [
+                {"name":"id", "type":"uint64"},
+                {"name":"sender", "type":"account_name"},
+                {"name":"text", "type":"string"}
+            ]
+        }
+    ],
+    "actions":
+    [
+        {
+            "name": "add.message",
+            "type": "new_message",
+            "ricardian_contract": ""
+        },
+    ],
+    "tables":
+    [
+        {
+            "name": "messages",
+            "type": "message",
+            "index_type": "i64",
+            "key_names" : ["id"],
+            "key_types" : ["uint64"]
+        },
+    ],
+    "clauses": []
+}
