@@ -9,7 +9,6 @@ class simpledb : public eosio::contract
         {
             account_name sender;
             std::string text;
-
             EOSLIB_SERIALIZE( new_message, (sender)(text) );
         };
 
@@ -18,7 +17,6 @@ class simpledb : public eosio::contract
             uint64_t id = 0;
             account_name sender;
             std::string text;
-
             uint32_t primary_key() const { return id; }
             EOSLIB_SERIALIZE( message, (id)(sender)(text) );
         };
@@ -55,7 +53,6 @@ class simpledb : public eosio::contract
 
 extern "C"
 {
-    // the apply method implements the dispatch of events to this contract
     void apply( uint64_t receiver, uint64_t code, uint64_t action )
     {
         simpledb(receiver).apply( code, action );
